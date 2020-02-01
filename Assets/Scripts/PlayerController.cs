@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.Euler(axisFix.x, transform.rotation.y, axisFix.z);
         if (goUp)
         {
             GoUp();
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
     public void StartGoUp()
     {
         goUp = true;
+        rig.velocity = Vector3.zero;
     }
 
     public void StopGoUp()
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
     public void StartGoDown()
     {
         goDown = true;
+        rig.velocity = Vector3.zero;
     }
 
     public void StopGoDown()
@@ -102,6 +105,7 @@ public class PlayerController : MonoBehaviour
     public void StartGoRight()
     {
         goRight = true;
+        rig.velocity = Vector3.zero;
     }
 
     public void StopGoRight()
@@ -121,6 +125,7 @@ public class PlayerController : MonoBehaviour
     public void StartGoLeft()
     {
         goLeft = true;
+        rig.velocity = Vector3.zero;
     }
     public void StopGoLeft()
     {

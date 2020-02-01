@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MaterialRandomCreate : MonoBehaviour
 {
-    bool createMaterials;
+    public bool createMaterials;
 
     [Header("會產生的口罩材料")]
     public GameObject[] maskMiddleMaterials;

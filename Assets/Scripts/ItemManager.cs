@@ -18,7 +18,7 @@ public class ItemManager : MonoBehaviour
     public float fallSpeed;
 
     bool canCatch = true;
-    bool fall = true;
+    public bool fall = true;
     
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,7 @@ public class ItemManager : MonoBehaviour
             {
                 if (other.gameObject.transform.parent.GetComponent<PlayerController>().canTake)
                 {
+                    fall = false;
                     canCatch = false;
                     other.gameObject.transform.parent.GetComponent<PlayerController>().canTake = false;
                     this.transform.SetParent(other.transform.parent);
@@ -68,5 +69,6 @@ public class ItemManager : MonoBehaviour
         }
         
     }
+  
 
 }
