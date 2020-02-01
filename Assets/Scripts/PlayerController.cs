@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler(axisFix.x, transform.rotation.y, axisFix.z);
+        //transform.rotation = Quaternion.Euler(axisFix.x, transform.rotation.y, axisFix.z);
         if (goUp)
         {
             GoUp();
