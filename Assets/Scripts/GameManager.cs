@@ -1,11 +1,14 @@
 ﻿using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public event Action<int> OnPlayerCountChange;
+
     [SerializeField]
     private GameObject playerPrefab = null;
     [SerializeField]
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        OnPlayerCountChange += startUI.OnPlayerCountChange;
         startUI.Show();
     }
 
@@ -87,6 +91,8 @@ public class GameManager : MonoBehaviour
 
         var playerController = newPlayer.GetComponent<PlayerController>();
         players.Add(deviceID, playerController);
+
+        OnPlayerCountChange?.Invoke(playerCount);
     }
 
     private void OnMessage(int from, JToken data)
