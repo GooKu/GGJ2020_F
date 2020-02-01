@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         }
 
         GameObject newPlayer = Instantiate<GameObject>(playerPrefab);
-        var playerController = newPlayer.AddComponent<PlayerController>();
+        var playerController = newPlayer.GetComponent<PlayerController>();
         players.Add(deviceID, playerController);
     }
 
@@ -98,5 +98,10 @@ public class GameManager : MonoBehaviour
             AirConsole.instance.onReady -= OnReady;
             AirConsole.instance.onConnect -= OnConnect;
         }
+    }
+
+    public static void AddPoint(int point, int group)
+    {
+
     }
 }
