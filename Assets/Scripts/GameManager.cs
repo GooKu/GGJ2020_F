@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         AirConsole.instance.onReady += OnReady;
         AirConsole.instance.onConnect += OnConnect;
         phase = GamePhase.WaitPlayer;
+        countDownUI.OnCountDownFinishEvent += GameEnd;
     }
 
     private void Start()
@@ -163,13 +164,8 @@ public class GameManager : MonoBehaviour
         countDownUI.StartCountDown();
     }
 
-    public static GamePhase GetPhase()
+    public void GameEnd()
     {
-        return phase;
-    } 
-
-    public static void AddPoint(int point, GroupType group)
-    {
-        //TODO
+        phase = GamePhase.End;
     }
 }
