@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     private Transform[] redGroupBornDummy = new Transform[3];
     [SerializeField]
     private Transform[] blueGroupBornDummy = new Transform[3];
+    [SerializeField]
+    private StartUI startUI;
+
+    private static GamePhase phase;
 
     private Dictionary<int, PlayerController> players = new Dictionary<int, PlayerController>();
 
@@ -24,11 +28,12 @@ public class GameManager : MonoBehaviour
         AirConsole.instance.onMessage += OnMessage;
         AirConsole.instance.onReady += OnReady;
         AirConsole.instance.onConnect += OnConnect;
+        phase = GamePhase.WaitPlayer;
     }
 
     private void Start()
     {
-       ///TODO: show wiat UI 
+        startUI.Show();
     }
 
     private void OnReady(string code)
@@ -68,12 +73,14 @@ public class GameManager : MonoBehaviour
             data.Group = GroupType.Blue;
             int index = (int)(playerCount / 2);
             pos = blueGroupBornDummy[index].position;
+            phase = GamePhase.WaitPlayer;
         }
         else
         {
             data.Group = GroupType.Red;
             int index = (int)(playerCount / 2) -1;
             pos = redGroupBornDummy[index].position;
+            phase = GamePhase.Ready;
         }
 
         newPlayer.transform.position = pos;
@@ -85,6 +92,8 @@ public class GameManager : MonoBehaviour
     private void OnMessage(int from, JToken data)
     {
         Debug.Log("message: " + data);
+
+        if(phase != GamePhase.OnBattle) { return; }
 
         if (!players.TryGetValue(from, out var player)) { return; }
 
@@ -131,7 +140,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GameStart()
+    {
+        phase = GamePhase.OnBattle;
+        startUI.Hide();
+    }
+
+    public static GamePhase GetPhase()
+    {
+        return phase;
+    } 
+
     public static void AddPoint(int point, GroupType group)
     {
+        //TODO
     }
 }
