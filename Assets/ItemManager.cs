@@ -20,9 +20,7 @@ public class ItemManager : MonoBehaviour
     
 
     private void OnTriggerEnter(Collider other)
-    {
-
-
+    {                
         if (canCatch)
         {
             if (other.tag == "Player")
@@ -30,6 +28,14 @@ public class ItemManager : MonoBehaviour
                 canCatch = false;
                 this.transform.SetParent(other.transform);
                 this.transform.localPosition = new Vector3(-.02f, 0, 0);
+            }
+        }
+        else
+        {
+            if (other.tag == "Machine")
+            {
+                this.transform.SetParent(other.transform);
+                this.transform.localPosition = new Vector3(0, 1f, 0);
             }
         }
         

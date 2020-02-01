@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Table
+  - Machine
+  - MaskMiddle
+  - MaskSide
   layers:
   - Default
   - TransparentFX
