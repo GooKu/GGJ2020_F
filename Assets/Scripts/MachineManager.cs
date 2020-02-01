@@ -14,9 +14,9 @@ public class MachineManager : MonoBehaviour
     public int count = 0;
 
     [Header("各項分數")]
-    public int typeOneScore;
-    public int typeTwoScore;
-    public int typeThreeScore;
+    public int[] maskScore;
+
+    private int totalScore;
 
     [Header("UI控制器")]
     public GameUIManager gameUIManager;
@@ -54,7 +54,7 @@ public class MachineManager : MonoBehaviour
     }
 
     //放入三個材料時判斷是否正確
-    public void CheckMaterials()
+    private void CheckMaterials()
     {
         if(maskSide.Count == 2 && maskMiddle.Count == 1)
         {
@@ -67,7 +67,7 @@ public class MachineManager : MonoBehaviour
     }
 
     //製作口罩
-    public void ProduceMask()
+    private void ProduceMask()
     {
         print("Succeed");
         CheckScore();
@@ -76,14 +76,14 @@ public class MachineManager : MonoBehaviour
     }
 
     //錯誤的三個材料
-    public void WrongMaterials()
+    private void WrongMaterials()
     {
         print("WrongMaterials");
         ResetMaterialList();
     }
 
     //正確或錯誤組合後重置
-    public void ResetMaterialList()
+    private void ResetMaterialList()
     {
         for(int i = 0; i < maskMiddle.Count; i++)
         {
@@ -101,40 +101,22 @@ public class MachineManager : MonoBehaviour
     }
 
     //判斷分數
-    public void CheckScore()
+    private void CheckScore()
     {
-        if (maskMiddle[0].GetComponent<ItemManager>().maskType == MaskType.One)
-        {
-            if (group == GroupType.Blue)
-            {
-                gameUIManager.GetComponent<GameUIManager>().setTeamAScore(typeOneScore);
-            }
-            else
-            {
-                gameUIManager.GetComponent<GameUIManager>().setTeamBScore(typeOneScore);
-            }
-        }
-        else if (maskMiddle[0].GetComponent<ItemManager>().maskType == MaskType.Two)
-        {
-            if (group == GroupType.Blue)
-            {
-                gameUIManager.GetComponent<GameUIManager>().setTeamAScore(typeTwoScore);
-            }
-            else
-            {
-                gameUIManager.GetComponent<GameUIManager>().setTeamBScore(typeTwoScore);
-            }
-        }
-        else
-        {
-            if (group == GroupType.Blue)
-            {
-                gameUIManager.GetComponent<GameUIManager>().setTeamAScore(typeThreeScore);
-            }
-            else
-            {
-                gameUIManager.GetComponent<GameUIManager>().setTeamBScore(typeThreeScore);
-            }
-        }
+        totalScore += maskScore[maskMiddle[0].GetComponent<ItemManager>().maskTypeId];
+
+    }
+    
+    //獲得現有分數
+    public int GetScore()
+    {
+        return totalScore;
+    }
+
+    //分數重置
+    public int ResetScore()
+    {
+        totalScore = 0;
+        return totalScore;
     }
 }

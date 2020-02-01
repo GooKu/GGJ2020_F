@@ -23,6 +23,8 @@ public class MaterialRandomCreate : MonoBehaviour
     [Header("生成高度")]
     public float height;
 
+    public List<GameObject> item;
+
     private float maskMiddleCreateTime;
     private float maskSideCreateTime;
 
@@ -67,16 +69,32 @@ public class MaterialRandomCreate : MonoBehaviour
     public void CreateMaskMiddle()
     {
         if (maskMiddleMaterials.Length < 1) return;
-        int num = Random.Range(0, maskMiddleMaterials.Length);
-        Instantiate(maskMiddleMaterials[num], new Vector3(Random.Range(-xAxis, xAxis), height, Random.Range(-zAxis, zAxis)), Quaternion.identity);
+
+        //隨機生成1-3個
+        int createNum = Random.Range(1, 3);
+
+        for (int i = 0; i < createNum; i++)
+        {
+            int num = Random.Range(0, maskMiddleMaterials.Length);
+            GameObject go = Instantiate(maskMiddleMaterials[num], new Vector3(Random.Range(-xAxis, xAxis), height, Random.Range(-zAxis, zAxis)), Quaternion.identity);
+            item.Add(go);
+        }
     }
 
     //隨機生成口罩線的材料
     public void CreateMaskSide()
     {
         if (maskSideMaterials.Length < 1) return;
-        int num = Random.Range(0, maskSideMaterials.Length);
-        Instantiate(maskSideMaterials[num], new Vector3(Random.Range(-xAxis, xAxis), height, Random.Range(-zAxis, zAxis)), Quaternion.identity);
+
+        //隨機生成1-3個
+        int createNum = Random.Range(1, 3);
+
+        for (int i = 0; i < createNum; i++)
+        {
+            int num = Random.Range(0, maskSideMaterials.Length);
+            GameObject go = Instantiate(maskSideMaterials[num], new Vector3(Random.Range(-xAxis, xAxis), height, Random.Range(-zAxis, zAxis)), Quaternion.identity);
+            item.Add(go);
+        }
     }
 
     //重置口罩中間材料的生成時間
@@ -103,5 +121,17 @@ public class MaterialRandomCreate : MonoBehaviour
     public void StopCreate()
     {
         createMaterials = false;
+    }
+
+    //刪除所有物件
+    [ContextMenu("DestroyAllItem")]
+    public void DestroyAllItem()
+    {
+        for(int i = 0; i < item.Count; i++)
+        {
+            Destroy(item[i]);
+        }
+
+        item.Clear();
     }
 }

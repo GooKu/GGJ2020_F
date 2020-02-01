@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9322a6a5e4248274c8ab6702e5b87342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maskType: 0
+  maskTypeId: 0
   defaultRotation: {x: -90, y: 0, z: 0}
   yGroundPos: 0.2
   fallSpeed: 30

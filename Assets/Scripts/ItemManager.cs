@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    public MaskType maskType;
+    //public MaskType maskType;
+
+    [Header("口罩ID")]
+    public int maskTypeId;
 
     [Header("初始Rotation")]
     public Vector3 defaultRotation;
@@ -15,6 +18,7 @@ public class ItemManager : MonoBehaviour
     public float fallSpeed;
 
     bool canCatch = true;
+    bool fall = true;
     
     // Start is called before the first frame update
     void Start()
@@ -25,12 +29,20 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!fall) return;
+        if(Vector3.Distance(transform.position, new Vector3(transform.position.x, yGroundPos)) < .1f)
+        {
+            fall = false;
+            return;
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, yGroundPos, transform.position.z), fallSpeed * Time.deltaTime);
     }
     
 
     private void OnTriggerEnter(Collider other)
     {      
+
         if (canCatch)
         {
             if (other.tag == TagManager.Player)
