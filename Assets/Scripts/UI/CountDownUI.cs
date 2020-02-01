@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
 
@@ -16,7 +14,7 @@ public class CountDownUI : MonoBehaviour
     private float time = 0;
     private bool isStart = false;
 
-    private void Start()
+    public void Init()
     {
         time = timeLimit;
     }

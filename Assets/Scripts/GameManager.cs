@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         OnPlayerCountChange += startUI.OnPlayerCountChange;
         startUI.Show();
+        countDownUI.Init();
     }
 
     private void OnReady(string code)
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
             data.Group = GroupType.Blue;
             int index = (int)(playerCount / 2);
             pos = blueGroupBornDummy[index].position;
+            data.StartPostion = pos;
             render.material.color = blueGroupColor;
             phase = GamePhase.WaitPlayer;
         }
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
             data.Group = GroupType.Red;
             int index = (int)(playerCount / 2) -1;
             pos = redGroupBornDummy[index].position;
+            data.StartPostion = pos;
             render.material.color = redGroupColor;
             phase = GamePhase.Ready;
         }
@@ -173,9 +176,42 @@ public class GameManager : MonoBehaviour
         phase = GamePhase.End;
         var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
         materialRandomCreate?.StopCreate();
+
+        var machineManagers = GameObject.FindObjectsOfType<MachineManager>();
+
+        var groupA = machineManagers[0];
+        var groupB = machineManagers[1];
+
+        if(groupA.GetScore() > groupB.GetScore())
+        {
+            endUI.ShowWinner(groupA.group);
+        }
+        else if (groupA.GetScore() < groupB.GetScore())
+        {
+            endUI.ShowWinner(groupB.group);
+        }
+        else
+        {
+            endUI.ShowTie();
+        }
     }
+
     public void Again()
     {
+        countDownUI.Init();
+        endUI.Hide();
+        var machineManagers = GameObject.FindObjectsOfType<MachineManager>();
+        foreach(var m in machineManagers)
+        {
+            m.ResetScore();
+        }
+        var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
+        materialRandomCreate?.DestroyAllItem();
 
+        foreach (var player in players)
+        {
+            player.Value.transform.position = player.Value.GetComponent<PlayerData>().StartPostion;
+        }
+        GameStart();
     }
 }
