@@ -8,6 +8,7 @@ TagManager:
   - Machine
   - MaskMiddle
   - MaskSide
+  - Ground
   layers:
   - Default
   - TransparentFX
