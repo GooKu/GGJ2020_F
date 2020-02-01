@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private CountDownUI countDownUI = null;
+    [SerializeField]
+    private EndUI endUI = null;
 
     private static GamePhase phase;
 
@@ -171,5 +173,9 @@ public class GameManager : MonoBehaviour
         phase = GamePhase.End;
         var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
         materialRandomCreate?.StopCreate();
+    }
+    public void Again()
+    {
+
     }
 }
