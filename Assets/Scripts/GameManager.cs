@@ -100,8 +100,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void AddPoint(int point, int group)
+    public static void AddPoint(int point, GroupType group)
     {
-
     }
 }
