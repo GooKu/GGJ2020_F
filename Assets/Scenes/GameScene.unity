@@ -360,10 +360,8 @@ MonoBehaviour:
   maskMiddle: []
   maskSide: []
   count: 0
-  typeOneScore: 3
-  typeTwoScore: 2
-  typeThreeScore: 1
-  gameUIManager: {fileID: 0}
+  maskScore: 02000000
+  gameUIManager: {fileID: 1355786978}
 --- !u!65 &468346592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -654,6 +652,7 @@ MonoBehaviour:
   xAxis: 18
   zAxis: 18
   height: 30
+  item: []
 --- !u!4 &786891109
 Transform:
   m_ObjectHideFlags: 0
@@ -704,10 +703,8 @@ MonoBehaviour:
   maskMiddle: []
   maskSide: []
   count: 0
-  typeOneScore: 3
-  typeTwoScore: 2
-  typeThreeScore: 1
-  gameUIManager: {fileID: 0}
+  maskScore: 02000000
+  gameUIManager: {fileID: 1355786978}
 --- !u!65 &909417922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -997,6 +994,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1355786976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1355786978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1674445173577122429, guid: ce15b12b5e1184ba98e3f3b28d915b09,
+    type: 3}
+  m_PrefabInstance: {fileID: 1355786976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163737564737f237362796074737f276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1463300040
 GameObject:
   m_ObjectHideFlags: 0

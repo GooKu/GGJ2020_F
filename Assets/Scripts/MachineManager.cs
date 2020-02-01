@@ -70,6 +70,7 @@ public class MachineManager : MonoBehaviour
     private void ProduceMask()
     {
         print("Succeed");
+        totalScore += maskScore[(maskMiddle[0].GetComponent<ItemManager>().maskTypeId)];
         CheckScore();
 
         ResetMaterialList();
@@ -103,20 +104,30 @@ public class MachineManager : MonoBehaviour
     //判斷分數
     private void CheckScore()
     {
-        totalScore += maskScore[maskMiddle[0].GetComponent<ItemManager>().maskTypeId];
-
+        if(group == GroupType.Blue)
+        {
+            gameUIManager.GetComponent<GameUIManager>().setTeamAScore(totalScore);
+        }
+        else
+        {
+            gameUIManager.GetComponent<GameUIManager>().setTeamBScore(totalScore);
+        }
     }
     
+
+    [ContextMenu("GetScore")]
     //獲得現有分數
     public int GetScore()
     {
         return totalScore;
     }
 
+    [ContextMenu("ResetScore")]
     //分數重置
     public int ResetScore()
     {
         totalScore = 0;
+        CheckScore();
         return totalScore;
     }
 }
