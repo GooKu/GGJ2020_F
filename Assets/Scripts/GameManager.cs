@@ -8,8 +8,16 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject playerPrefab = null;
+    [SerializeField]
+    private Transform[] redGroupBornDummy = new Transform[3];
+    [SerializeField]
+    private Transform[] blueGroupBornDummy = new Transform[3];
 
     private Dictionary<int, PlayerController> players = new Dictionary<int, PlayerController>();
+
+    private Dictionary<GroupType, int> score = new Dictionary<GroupType, int>();
+
+    int playerCount = 0;
 
     private void Awake()
     {
@@ -41,12 +49,35 @@ public class GameManager : MonoBehaviour
 
     private void AddNewPlayer(int deviceID)
     {
+        if(playerCount >= 6) { return; }
+
         if (players.ContainsKey(deviceID))
         {
             return;
         }
 
+        playerCount++;
+
         GameObject newPlayer = Instantiate<GameObject>(playerPrefab);
+        var data = newPlayer.AddComponent<PlayerData>();
+
+        Vector3 pos = Vector3.zero;
+
+        if(playerCount % 2 == 1)
+        {
+            data.Group = GroupType.Blue;
+            int index = (int)(playerCount / 2);
+            pos = blueGroupBornDummy[index].position;
+        }
+        else
+        {
+            data.Group = GroupType.Red;
+            int index = (int)(playerCount / 2) -1;
+            pos = redGroupBornDummy[index].position;
+        }
+
+        newPlayer.transform.position = pos;
+
         var playerController = newPlayer.GetComponent<PlayerController>();
         players.Add(deviceID, playerController);
     }
