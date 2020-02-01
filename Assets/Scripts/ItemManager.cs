@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    public MaskType maskType;
 
     bool canCatch = true;
     // Start is called before the first frame update
