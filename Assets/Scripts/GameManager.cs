@@ -162,6 +162,8 @@ public class GameManager : MonoBehaviour
         phase = GamePhase.OnBattle;
         startUI.Hide();
         countDownUI.StartCountDown();
+        var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
+        materialRandomCreate?.StartCreate();
     }
 
     public void GameEnd()
