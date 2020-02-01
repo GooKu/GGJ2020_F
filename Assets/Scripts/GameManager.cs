@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     private Transform[] blueGroupBornDummy = new Transform[3];
     [SerializeField]
     private StartUI startUI;
+    [SerializeField]
+    private Color redGroupColor = Color.red;
+    [SerializeField]
+    private Color blueGroupColor = Color.blue;
 
     private static GamePhase phase;
 
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour
 
         GameObject newPlayer = Instantiate<GameObject>(playerPrefab);
         var data = newPlayer.AddComponent<PlayerData>();
+        var render = newPlayer.GetComponent<Renderer>();
 
         Vector3 pos = Vector3.zero;
 
@@ -77,6 +82,7 @@ public class GameManager : MonoBehaviour
             data.Group = GroupType.Blue;
             int index = (int)(playerCount / 2);
             pos = blueGroupBornDummy[index].position;
+            render.material.color = blueGroupColor;
             phase = GamePhase.WaitPlayer;
         }
         else
@@ -84,6 +90,7 @@ public class GameManager : MonoBehaviour
             data.Group = GroupType.Red;
             int index = (int)(playerCount / 2) -1;
             pos = redGroupBornDummy[index].position;
+            render.material.color = redGroupColor;
             phase = GamePhase.Ready;
         }
 
