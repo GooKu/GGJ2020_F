@@ -167,5 +167,7 @@ public class GameManager : MonoBehaviour
     public void GameEnd()
     {
         phase = GamePhase.End;
+        var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
+        materialRandomCreate?.StopCreate();
     }
 }
