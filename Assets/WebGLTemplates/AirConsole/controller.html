@@ -16,28 +16,38 @@
     font-size: 14px;
     padding: 5px 10px 5px 10px;
     border: solid #1f1f1f 2px;
-    height: 100%;
     position: absolute;
+    color: #ffffff;
   }
 
-  #left-button{
-  	left: 0;
-  	width: 25%;
-  	height: 100%;
-  }
+      #left-button {
+          left: 0;
+          width: 100px;
+          height: 100px;
+      }
 
-  #right-button{
-  	left: 25%;
-  	width: 25%;
-  	height: 100%;
-  }
+      #right-button {
+          left: 25%;
+          width: 100px;
+          height: 100px;
+      }
+      #up-button {
+          left: 50%;
+          width: 100px;
+          height: 100px;
+      }
+      #down-button {
+          left: 75%;
+          width: 100px;
+          height: 100px;
+      }
 
-  #jump-button{
-	right: 0;
-  	bottom: 0;
-  	width: 50%;
-  	height: 50%;
-  }
+      #jump-button {
+          right: 0;
+          bottom: 0;
+          width: 50%;
+          height: 50%;
+      }
 
   #interact-button{
   	right: 0;
@@ -46,17 +56,17 @@
   	height: 50%;
   }
 
-  .button-text{
-    position: absolute;
-    color: white;”
-    font-family: sans-serif;
-    text-align: center;
-    pointer-events: none;
-    width: 50%;
-    height: 20%;
-    left: 25%;
-    top: 40%;
-  }
+      .button-text {
+          position: absolute;
+          color: white;
+          ” font-family: sans-serif;
+          text-align: center;
+          pointer-events: none;
+          width: 50%;
+          height: 20%;
+          left: 25%;
+          top: 40%;
+      }
   </style>
   
   <script type="text/javascript">
@@ -105,9 +115,9 @@
 </head>
 <body onload="window.app = new App()">
   <div id="background"></div>
-  <div class="button" id="left-button" ontouchstart="window.app.sendMessageToScreen('left')" ontouchend="window.app.sendMessageToScreen('left-up')"></div>
-  <div class="button" id="right-button" ontouchstart="window.app.sendMessageToScreen('right')" ontouchend="window.app.sendMessageToScreen('right-up')"></div>
-  <div class="button" id="down-button" ontouchstart="window.app.sendMessageToScreen('down')" ontouchend="window.app.sendMessageToScreen('down-up')"></div>
-  <div class="button" id="up-button" ontouchstart="window.app.sendMessageToScreen('up')" ontouchend="window.app.sendMessageToScreen('up-up')"></div>
+  <div class="button" id="left-button" ontouchstart="window.app.sendMessageToScreen('left')" ontouchend="window.app.sendMessageToScreen('left-up')">Left</div>
+  <div class="button" id="right-button" ontouchstart="window.app.sendMessageToScreen('right')" ontouchend="window.app.sendMessageToScreen('right-up')">Right</div>
+  <div class="button" id="down-button" ontouchstart="window.app.sendMessageToScreen('down')" ontouchend="window.app.sendMessageToScreen('down-up')">Down</div>
+  <div class="button" id="up-button" ontouchstart="window.app.sendMessageToScreen('up')" ontouchend="window.app.sendMessageToScreen('up-up')">Up</div>
 </body>
 </html>
