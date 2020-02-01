@@ -16,11 +16,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform[] blueGroupBornDummy = new Transform[3];
     [SerializeField]
-    private StartUI startUI;
+    private StartUI startUI = null;
     [SerializeField]
     private Color redGroupColor = Color.red;
     [SerializeField]
     private Color blueGroupColor = Color.blue;
+
+    [SerializeField]
+    private CountDownUI countDownUI = null;
 
     private static GamePhase phase;
 
@@ -157,6 +160,7 @@ public class GameManager : MonoBehaviour
     {
         phase = GamePhase.OnBattle;
         startUI.Hide();
+        countDownUI.StartCountDown();
     }
 
     public static GamePhase GetPhase()
