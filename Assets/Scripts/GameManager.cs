@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     private void OnReady(string code)
     {
+        Debug.Log($"OnReady:{code}");
+
         List<int> connectedDevices = AirConsole.instance.GetControllerDeviceIds();
         foreach (int deviceID in connectedDevices)
         {
@@ -49,8 +51,52 @@ public class GameManager : MonoBehaviour
         players.Add(deviceID, playerController);
     }
 
-    void OnMessage(int from, JToken data)
+    private void OnMessage(int from, JToken data)
     {
-        //TODO
+        Debug.Log("message: " + data);
+
+        if (!players.TryGetValue(from, out var player)) { return; }
+
+        if(data["action"] == null) { return; }
+
+        var key = data["action"].ToString();
+
+        switch (key)
+        {
+            case "left":
+                player.StartGoLeft();
+                break;
+            case "left-up":
+                player.StopGoLeft();
+                break;
+            case "right":
+                player.StartGoRight();
+                break;
+            case "right-up":
+                player.StopGoRight();
+                break;
+            case "down":
+                player.StartGoDown();
+                break;
+            case "down-up":
+                player.StopGoDown();
+                break;
+            case "up":
+                player.StartGoUp();
+                break;
+            case "up-up":
+                player.StopGoUp();
+                break;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (AirConsole.instance != null)
+        {
+            AirConsole.instance.onMessage -= OnMessage;
+            AirConsole.instance.onReady -= OnReady;
+            AirConsole.instance.onConnect -= OnConnect;
+        }
     }
 }
