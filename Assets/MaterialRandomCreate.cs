@@ -33,7 +33,8 @@ public class MaterialRandomCreate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        maskMiddleTimer = maxTime;
+        maskSideTimer = maxTime;
     }
 
     // Update is called once per frame
