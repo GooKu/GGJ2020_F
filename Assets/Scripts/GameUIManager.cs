@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameUIManager : MonoBehaviour
 {
-    public Text TotalTimeText;
     [Header("TeamA分數")]
     public Text TeamAScoreText;
     [Header("TeamB分數")]
@@ -22,10 +21,6 @@ public class GameUIManager : MonoBehaviour
     void Update()
     {
         
-    }
-    public void setTotalTime(float time)
-    { 
-        TotalTimeText.text = time.ToString();
     }
     
     public void setTeamAScore(int score)

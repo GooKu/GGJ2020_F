@@ -13,16 +13,21 @@ public class PlayerController : MonoBehaviour
     [Header("玩家是否可以拿東西")]
     public bool canTake = true;
 
+
+    private Rigidbody rig;
+
     //控制方向開關
     bool goUp;
     bool goDown;
     bool goRight;
     bool goLeft;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         transform.rotation = Quaternion.Euler(axisFix.x, 0 + axisFix.y, axisFix.z);
+        rig = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -50,7 +55,8 @@ public class PlayerController : MonoBehaviour
     private void GoUp()
     {
         transform.rotation = Quaternion.Euler(axisFix.x, 0 + axisFix.y, axisFix.z);
-        transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
+        //transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
+        rig.velocity = Vector3.forward * moveSpeed;
     }
     //往上走開關
     public void StartGoUp()
@@ -61,13 +67,16 @@ public class PlayerController : MonoBehaviour
     public void StopGoUp()
     {
         goUp = false;
+        rig.velocity = Vector3.zero;
+
     }
-    
+
     //往下走功能
     private void GoDown()
     {
         transform.rotation = Quaternion.Euler(axisFix.x, 180 + axisFix.y, axisFix.z);
-        transform.position += Vector3.back * Time.deltaTime * moveSpeed;
+        //transform.position += Vector3.back * Time.deltaTime * moveSpeed;
+        rig.velocity = Vector3.back * moveSpeed;
     }
     //往下走開關
     public void StartGoDown()
@@ -78,13 +87,16 @@ public class PlayerController : MonoBehaviour
     public void StopGoDown()
     {
         goDown = false;
+        rig.velocity = Vector3.zero;
+
     }
 
     //往右走功能
     private void GoRight()
     {
         transform.rotation = Quaternion.Euler(axisFix.x, 90 + axisFix.y, axisFix.z);
-        transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+        //transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+        rig.velocity = Vector3.right * moveSpeed;
     }
     //往右走開關
     public void StartGoRight()
@@ -95,13 +107,15 @@ public class PlayerController : MonoBehaviour
     public void StopGoRight()
     {
         goRight = false;
+        rig.velocity = Vector3.zero;
     }
 
     //往左走功能
     private void GoLeft()
     {
         transform.rotation = Quaternion.Euler(axisFix.x, 270 + axisFix.y, axisFix.z);
-        transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+        //transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+        rig.velocity = Vector3.left * moveSpeed;
     }
     //往左走開關
     public void StartGoLeft()
@@ -111,6 +125,7 @@ public class PlayerController : MonoBehaviour
     public void StopGoLeft()
     {
         goLeft = false;
+        rig.velocity = Vector3.zero;
     }
     
 }

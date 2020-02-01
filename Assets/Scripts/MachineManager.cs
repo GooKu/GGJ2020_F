@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MachineManager : MonoBehaviour
 {
@@ -11,7 +12,15 @@ public class MachineManager : MonoBehaviour
     public List<GameObject> maskSide;
 
     public int count = 0;
-    
+
+    [Header("各項分數")]
+    public int typeOneScore;
+    public int typeTwoScore;
+    public int typeThreeScore;
+
+    [Header("UI控制器")]
+    public GameUIManager gameUIManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +70,8 @@ public class MachineManager : MonoBehaviour
     public void ProduceMask()
     {
         print("Succeed");
+        CheckScore();
+
         ResetMaterialList();
     }
 
@@ -87,5 +98,43 @@ public class MachineManager : MonoBehaviour
         maskMiddle.Clear();
         maskSide.Clear();
         count = 0;
+    }
+
+    //判斷分數
+    public void CheckScore()
+    {
+        if (maskMiddle[0].GetComponent<ItemManager>().maskType == MaskType.One)
+        {
+            if (group == GroupType.Blue)
+            {
+                gameUIManager.GetComponent<GameUIManager>().setTeamAScore(typeOneScore);
+            }
+            else
+            {
+                gameUIManager.GetComponent<GameUIManager>().setTeamBScore(typeOneScore);
+            }
+        }
+        else if (maskMiddle[0].GetComponent<ItemManager>().maskType == MaskType.Two)
+        {
+            if (group == GroupType.Blue)
+            {
+                gameUIManager.GetComponent<GameUIManager>().setTeamAScore(typeTwoScore);
+            }
+            else
+            {
+                gameUIManager.GetComponent<GameUIManager>().setTeamBScore(typeTwoScore);
+            }
+        }
+        else
+        {
+            if (group == GroupType.Blue)
+            {
+                gameUIManager.GetComponent<GameUIManager>().setTeamAScore(typeThreeScore);
+            }
+            else
+            {
+                gameUIManager.GetComponent<GameUIManager>().setTeamBScore(typeThreeScore);
+            }
+        }
     }
 }
