@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [Header("玩家模型Rotation校正值")]
     public Vector3 axisFix;
 
+    [Header("玩家是否可以拿東西")]
+    public bool canTake = true;
+
     //控制方向開關
     bool goUp;
     bool goDown;
@@ -109,4 +112,5 @@ public class PlayerController : MonoBehaviour
     {
         goLeft = false;
     }
+    
 }
