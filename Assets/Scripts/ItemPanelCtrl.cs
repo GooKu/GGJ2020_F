@@ -23,7 +23,7 @@ public class ItemPanelCtrl : MonoBehaviour
         cam = Camera.main;
         setTeamB();
         setItem1Label(12);
-
+        Init();
     }
 
     public void setTeamA()
@@ -80,5 +80,13 @@ public class ItemPanelCtrl : MonoBehaviour
             print("update player pos");
             print(playerPos);
         }
+    }
+
+    public void Init()
+    {
+        item1Cnt = 0;
+        item2Cnt = 0;
+        setItem1Label(item1Cnt);
+        setItem2Label(item2Cnt);
     }
 }
