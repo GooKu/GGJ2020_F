@@ -2051,6 +2051,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 487540561}
     m_Modifications:
+    - target: {fileID: 1334928384, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
+      propertyPath: stringOffset
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334928384, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
+      propertyPath: fontWidth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334928384, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
+      propertyPath: fontHeight
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 64359304749412394, guid: ce15b12b5e1184ba98e3f3b28d915b09,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2165,6 +2177,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameUIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033314742703281617, guid: ce15b12b5e1184ba98e3f3b28d915b09,
+        type: 3}
+      propertyPath: stringOffset
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033314742703281617, guid: ce15b12b5e1184ba98e3f3b28d915b09,
+        type: 3}
+      propertyPath: fontWidth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033314742703281617, guid: ce15b12b5e1184ba98e3f3b28d915b09,
+        type: 3}
+      propertyPath: fontHeight
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
@@ -2891,6 +2918,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 487540561}
     m_Modifications:
+    - target: {fileID: 1536425434038498978, guid: d4e9bd1f27702454f9ea97610ae5fe32,
+        type: 3}
+      propertyPath: stringOffset
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536425434038498978, guid: d4e9bd1f27702454f9ea97610ae5fe32,
+        type: 3}
+      propertyPath: fontWidth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536425434038498978, guid: d4e9bd1f27702454f9ea97610ae5fe32,
+        type: 3}
+      propertyPath: fontHeight
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2138542253659315951, guid: d4e9bd1f27702454f9ea97610ae5fe32,
         type: 3}
       propertyPath: m_Name

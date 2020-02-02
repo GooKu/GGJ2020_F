@@ -6,13 +6,14 @@ public class ScoreText : MonoBehaviour
 {
     public Sprite[] sprites;
     [Header("字串之間的間隔")]
-    public float stringOffset = 50.0f;
-    public int fontWidth = 16;
-    public int fontHeight = 20;
+    public float stringOffset = 65.0f;
+    public int fontWidth = 50;
+    public int fontHeight = 60;
     
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        setScore(1199);
     }
     void cleanChild()
     {
