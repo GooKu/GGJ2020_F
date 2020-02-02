@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 0
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b96f89f32bed8e64a9e97ea4f1685e44,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -229,8 +230,8 @@ MonoBehaviour:
   - {fileID: 1340963240}
   - {fileID: 1463300041}
   startUI: {fileID: 2108957214}
-  redGroupColor: {r: 1, g: 0, b: 0, a: 1}
-  blueGroupColor: {r: 0, g: 0, b: 1, a: 1}
+  redGroupColor: {r: 1, g: 0.41960785, b: 0.5921569, a: 1}
+  blueGroupColor: {r: 0.3019608, g: 0.6509804, b: 1, a: 1}
   countDownUI: {fileID: 1694718745}
   endUI: {fileID: 5849252909095257194}
   gameUIManager: {fileID: 1355786978}
@@ -908,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 1655618991904236373, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
       propertyPath: fixedY
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1655618991904236394, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
@@ -1779,7 +1780,7 @@ PrefabInstance:
     - target: {fileID: 1655618991904236373, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
       propertyPath: fixedY
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1655618991904236394, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
@@ -1956,7 +1957,7 @@ PrefabInstance:
     - target: {fileID: 1655618991904236373, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
       propertyPath: fixedY
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1655618991904236394, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
@@ -2368,7 +2369,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c42d226aa16303246aa2a79f38fddb45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2534,7 +2535,7 @@ PrefabInstance:
     - target: {fileID: 1655618991904236373, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
       propertyPath: fixedY
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1655618991904236394, guid: eb40c02daddda4ca2b2aff60e7b683e9,
         type: 3}
