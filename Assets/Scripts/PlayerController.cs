@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rig;
     private float direction;
 
+    private AudioSource putAds;
+
     //控制方向開關
     bool goUp;
     bool goDown;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(axisFix.x, direction + axisFix.y, axisFix.z);
         rig = GetComponent<Rigidbody>();
+        putAds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -140,6 +143,11 @@ public class PlayerController : MonoBehaviour
     {
         goLeft = false;
         rig.velocity = Vector3.zero;
+    }
+
+    public void PutSound()
+    {
+        putAds.Play();
     }
     
 }

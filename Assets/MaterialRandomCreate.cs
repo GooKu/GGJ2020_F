@@ -143,4 +143,10 @@ public class MaterialRandomCreate : MonoBehaviour
 
         item.Clear();
     }
+
+    //刪除特定物件
+    public void RemoveItem(GameObject gameObject)
+    {
+        item.Remove(gameObject);
+    }
 }
