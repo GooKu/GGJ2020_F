@@ -38,10 +38,10 @@ public class ScoreText : MonoBehaviour
                 GameObject obj = new GameObject();
                 Image image = obj.AddComponent<Image>();
                 image.sprite = sprites[12];
-                obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
                 x = timeStr.Length - (ci - i) * stringOffset;
                 obj.GetComponent<RectTransform>().SetParent(this.GetComponent<RectTransform>());
                 obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, 0);
+                obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
             }
             else
             {
@@ -50,10 +50,10 @@ public class ScoreText : MonoBehaviour
                 int index = int.Parse(timeStr.Substring(i, 1).ToString());
                 //print(index);
                 image.sprite = sprites[index];
-                obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
                 x = timeStr.Length - (ci - i) * stringOffset;
                 obj.GetComponent<RectTransform>().SetParent(this.GetComponent<RectTransform>());
                 obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, 0);
+                obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
             }
         }
     }
@@ -72,10 +72,10 @@ public class ScoreText : MonoBehaviour
             Image image = obj.AddComponent<Image>();
             int index = int.Parse(strScore.Substring(i, 1).ToString());
             image.sprite = sprites[index];
-            obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
             x = strScore.Length - (ci - i) * stringOffset;
             obj.GetComponent<RectTransform>().SetParent(this.GetComponent<RectTransform>());
             obj.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, 0);
+            obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
         }
 
     }

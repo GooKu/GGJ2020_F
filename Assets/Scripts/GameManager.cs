@@ -181,6 +181,8 @@ public class GameManager : MonoBehaviour
         phase = GamePhase.OnBattle;
         startUI.Hide();
         countDownUI.StartCountDown();
+        gameUIManager.setTeamAScore(0);
+        gameUIManager.setTeamBScore(0);
         var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
         materialRandomCreate?.StartCreate();
         audio.clip = battleSound;

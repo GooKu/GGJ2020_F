@@ -40,7 +40,6 @@ public class MachineManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CheckScore();
         machineAds = GetComponent<AudioSource>();
     }
 
@@ -144,6 +143,7 @@ public class MachineManager : MonoBehaviour
         maskSide.Clear();
         count = 0;
     }
+
 
     //判斷分數
     private void CheckScore()
