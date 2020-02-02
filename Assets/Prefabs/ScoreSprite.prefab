@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8086383610725206579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8086383610725206578}
+  - component: {fileID: 8086383610725207501}
+  m_Layer: 5
+  m_Name: ScoreSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8086383610725206578
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086383610725206579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -56.3, y: 17.3}
+  m_SizeDelta: {x: 360, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8086383610725207501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086383610725206579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9d6db47934a460b91710bafe1b6b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 3a0b16de915efc34b859108ff9608ae8, type: 3}
+  - {fileID: 21300000, guid: a8cf4ad20fa1f2e4fb40de081b5b5231, type: 3}
+  - {fileID: 21300000, guid: 5b24f63a1111fff4d8b2906bb56b426c, type: 3}
+  - {fileID: 21300000, guid: dacce674782778947ae2d80ac3215d20, type: 3}
+  - {fileID: 21300000, guid: 3f1f8871e4b815846b7a56b758e3f5bf, type: 3}
+  - {fileID: 21300000, guid: 84503715a75fed14782c680ffd378c73, type: 3}
+  - {fileID: 21300000, guid: 348c8318e2de41543b3c13ae98818cf0, type: 3}
+  - {fileID: 21300000, guid: f6aa4009b3bdd284c8e657f9f69711a2, type: 3}
+  - {fileID: 21300000, guid: e34182961ee708941a2387132d1c99ef, type: 3}
+  - {fileID: 21300000, guid: 754abf7073cae87499459f8afb8e675b, type: 3}
+  - {fileID: 21300000, guid: fbcd23446269efd4ea3605b67b4656d1, type: 3}
+  - {fileID: 21300000, guid: 08fd0b919976a124ca31373c1130e18c, type: 3}
+  - {fileID: 21300000, guid: 64769a17b4de868468a5db75b542d720, type: 3}
+  stringOffset: 50
+  fontWidth: 16
+  fontHeight: 20

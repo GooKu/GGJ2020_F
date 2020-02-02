@@ -3,16 +3,16 @@ using UnityEngine.UI;
 public class GameUIManager : MonoBehaviour
 {
     [Header("TeamA分數")]
-    public Text TeamAScoreText;
+    public ScoreText TeamAScoreTextObj;
     [Header("TeamB分數")]
-    public Text TeamBScoreText;
+    public ScoreText TeamBScoreTextObj;
     int TeamAScore = 0;
     int TeamBScore = 0;
     
     public void setTeamAScore(int score)
     {
         this.TeamAScore = score;
-        TeamAScoreText.text = score.ToString();
+        TeamAScoreTextObj.setScore(score);
     }
     public int getTeamAScore()
     {
@@ -21,7 +21,7 @@ public class GameUIManager : MonoBehaviour
     public void setTeamBScore(int score)
     {
         this.TeamBScore = score;
-        TeamBScoreText.text = score.ToString();
+        TeamBScoreTextObj.setScore(score);
     }
     public int getTeamBScore()
     {
