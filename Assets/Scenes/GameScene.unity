@@ -2127,15 +2127,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1334928384, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
       propertyPath: stringOffset
-      value: 40
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 1334928384, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
       propertyPath: fontWidth
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1334928384, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
       propertyPath: fontHeight
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 64359304749412394, guid: ce15b12b5e1184ba98e3f3b28d915b09,
         type: 3}
@@ -2255,17 +2255,17 @@ PrefabInstance:
     - target: {fileID: 6033314742703281617, guid: ce15b12b5e1184ba98e3f3b28d915b09,
         type: 3}
       propertyPath: stringOffset
-      value: 40
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 6033314742703281617, guid: ce15b12b5e1184ba98e3f3b28d915b09,
         type: 3}
       propertyPath: fontWidth
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6033314742703281617, guid: ce15b12b5e1184ba98e3f3b28d915b09,
         type: 3}
       propertyPath: fontHeight
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce15b12b5e1184ba98e3f3b28d915b09, type: 3}
