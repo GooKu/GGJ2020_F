@@ -18,6 +18,16 @@
           color: white;
         }
 
+        #game-title {
+          font-family: 'Righteous', cursive;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          font-size: 38px;
+          margin: 0 20px 10px 0;
+          text-shadow: 3px 3px 0 rgba(38,50,56,.7);
+        }
+
         .video-game-button {
           padding: 5px 10px 5px 10px;
         	text-shadow: 1px 1px pink, -1px -1px #b0305c;
@@ -139,6 +149,7 @@
           right: 0%;
           /* transform: translate(-50%, -50%); */
         }
+
     </style>
 
     <script type="text/javascript">var airconsole;
@@ -188,7 +199,7 @@
     <img class="chihuahua" src="TemplateData/chihuahua.png"></img>
 
     <div class="pad pad-right">
-      <!-- <span >copyright(C)</span> -->
+
     </div>
     <div class="pad pad-left">
 
@@ -205,6 +216,6 @@
         <div class="button video-game-button" ontouchstart="window.app.sendMessageToScreen('down')" ontouchend="window.app.sendMessageToScreen('down-up')">Down</div>
       </div>
     </div>
-
+    <span id="game-title">CoD: Mask Warfare</span>
 </body>
 </html>
