@@ -13,7 +13,6 @@ public class ScoreText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        setScore(1199);
     }
     void cleanChild()
     {
@@ -72,7 +71,6 @@ public class ScoreText : MonoBehaviour
             GameObject obj = new GameObject();
             Image image = obj.AddComponent<Image>();
             int index = int.Parse(strScore.Substring(i, 1).ToString());
-            print(index);
             image.sprite = sprites[index];
             obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
             x = strScore.Length - (ci - i) * stringOffset;
