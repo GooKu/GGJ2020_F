@@ -222,7 +222,7 @@ MonoBehaviour:
   winnerImg: {fileID: 1787627204592465796}
   redGroupSprite: {fileID: 21300000, guid: 08fd0b919976a124ca31373c1130e18c, type: 3}
   blueGroupSprite: {fileID: 21300000, guid: fbcd23446269efd4ea3605b67b4656d1, type: 3}
-  tieSprite: {fileID: 0}
+  tieSprite: {fileID: 21300000, guid: 06eee7a957d600a4bb1da237d6d47e18, type: 3}
 --- !u!1 &6252247423272574617
 GameObject:
   m_ObjectHideFlags: 0
