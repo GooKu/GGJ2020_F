@@ -10,11 +10,15 @@ public class PlayerController : MonoBehaviour
     [Header("玩家模型Rotation校正值")]
     public Vector3 axisFix;
 
+    [Header("玩家固定高度")]
+    public float yAxisFix;
+
     [Header("玩家是否可以拿東西")]
     public bool canTake = true;
 
 
     private Rigidbody rig;
+    private float direction;
 
     //控制方向開關
     bool goUp;
@@ -26,14 +30,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.rotation = Quaternion.Euler(axisFix.x, 0 + axisFix.y, axisFix.z);
+        transform.rotation = Quaternion.Euler(axisFix.x, direction + axisFix.y, axisFix.z);
         rig = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.rotation = Quaternion.Euler(axisFix.x, transform.rotation.y, axisFix.z);
+        transform.rotation = Quaternion.Euler(axisFix.x, direction + axisFix.y, axisFix.z);
+
         if (goUp)
         {
             GoUp();
@@ -55,7 +60,8 @@ public class PlayerController : MonoBehaviour
     //往上走功能
     private void GoUp()
     {
-        transform.rotation = Quaternion.Euler(axisFix.x, 0 + axisFix.y, axisFix.z);
+        direction = 0;
+        transform.rotation = Quaternion.Euler(axisFix.x, direction + axisFix.y, axisFix.z);
         //transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
         rig.velocity = Vector3.forward * moveSpeed;
     }
@@ -76,7 +82,8 @@ public class PlayerController : MonoBehaviour
     //往下走功能
     private void GoDown()
     {
-        transform.rotation = Quaternion.Euler(axisFix.x, 180 + axisFix.y, axisFix.z);
+        direction = 180;
+        transform.rotation = Quaternion.Euler(axisFix.x, direction + axisFix.y, axisFix.z);
         //transform.position += Vector3.back * Time.deltaTime * moveSpeed;
         rig.velocity = Vector3.back * moveSpeed;
     }
@@ -97,7 +104,8 @@ public class PlayerController : MonoBehaviour
     //往右走功能
     private void GoRight()
     {
-        transform.rotation = Quaternion.Euler(axisFix.x, 90 + axisFix.y, axisFix.z);
+        direction = 90;
+        transform.rotation = Quaternion.Euler(axisFix.x, direction + axisFix.y, axisFix.z);
         //transform.position += Vector3.right * Time.deltaTime * moveSpeed;
         rig.velocity = Vector3.right * moveSpeed;
     }
@@ -117,7 +125,8 @@ public class PlayerController : MonoBehaviour
     //往左走功能
     private void GoLeft()
     {
-        transform.rotation = Quaternion.Euler(axisFix.x, 270 + axisFix.y, axisFix.z);
+        direction = 270;
+        transform.rotation = Quaternion.Euler(axisFix.x, direction + axisFix.y, axisFix.z);
         //transform.position += Vector3.left * Time.deltaTime * moveSpeed;
         rig.velocity = Vector3.left * moveSpeed;
     }
