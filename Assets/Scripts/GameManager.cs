@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     int playerCount = 0;
 
+    private AudioSource audio;
+
     private void Awake()
     {
         AirConsole.instance.onMessage += OnMessage;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
         AirConsole.instance.onConnect += OnConnect;
         phase = GamePhase.WaitPlayer;
         countDownUI.OnCountDownFinishEvent += GameEnd;
+        audio = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -58,6 +61,8 @@ public class GameManager : MonoBehaviour
         OnPlayerCountChange += startUI.OnPlayerCountChange;
         startUI.Show();
         countDownUI.Init();
+        audio.clip = startSound;
+        audio.Play();
     }
 
     private void OnReady(string code)
@@ -178,6 +183,8 @@ public class GameManager : MonoBehaviour
         countDownUI.StartCountDown();
         var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
         materialRandomCreate?.StartCreate();
+        audio.clip = battleSound;
+        audio.Play();
     }
 
     public void GameEnd()
@@ -203,6 +210,8 @@ public class GameManager : MonoBehaviour
         {
             endUI.ShowTie();
         }
+        audio.clip = endSound;
+        audio.Play();
     }
 
     public void Again()
