@@ -24,6 +24,13 @@ public class MachineManager : MonoBehaviour
     [Header("材料數量UI")]
     public ItemPanelCtrl itemPanelCtrl;
 
+    //[Header("材料位置")]
+    private Vector3[] materialMiddlePos = { new Vector3(0f, .5f, 0), new Vector3(-.2f, .5f, 0), new Vector3(.2f, 0, 0) };
+    private Vector3[] materialSidePos = { new Vector3(-.5f, .7f, 0), new Vector3(-.5f, .7f, 0), new Vector3(0, 0, 0) };
+
+    //[Header("材料Rotation")]
+    private Vector3[] materialSideRot = { new Vector3(0, 0, 0), new Vector3(0, 180, 0), new Vector3(0, 0, 0) };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +57,11 @@ public class MachineManager : MonoBehaviour
             count++;
             maskMiddle.Add(material);
             itemPanelCtrl.setItem2Label(maskMiddle.Count);
+        }
+
+        if (count > 1)
+        {
+            SetMaterialsPosition();
         }
 
         if (count == 3)
@@ -156,5 +168,20 @@ public class MachineManager : MonoBehaviour
     {
         itemPanelCtrl.setItem1Label(0);
         itemPanelCtrl.setItem2Label(0);
+    }
+
+    private void SetMaterialsPosition()
+    {
+        for(int i = 0; i< maskSide.Count; i++)
+        {
+            maskSide[i].transform.localPosition = materialSidePos[i];
+            maskSide[i].transform.localRotation = Quaternion.Euler(materialSideRot[i]);
+        }
+
+        for (int i = 0; i < maskMiddle.Count; i++)
+        {
+            maskMiddle[i].transform.localPosition = materialMiddlePos[i];
+            maskMiddle[i].transform.localRotation = Quaternion.Euler(Vector3.zero);
+        }
     }
 }
