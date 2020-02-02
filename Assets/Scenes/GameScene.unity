@@ -234,9 +234,9 @@ MonoBehaviour:
   countDownUI: {fileID: 1694718745}
   endUI: {fileID: 5849252909095257194}
   gameUIManager: {fileID: 1355786978}
-  startSound: {fileID: 0}
-  battleSound: {fileID: 0}
-  endSound: {fileID: 0}
+  startSound: {fileID: 8300000, guid: fd050fa12b1460d4fa21de260968f6c2, type: 3}
+  battleSound: {fileID: 8300000, guid: 8845c573ec24cf14caa4273eec744c0f, type: 3}
+  endSound: {fileID: 8300000, guid: a00cdba65b6ecd4438b59377575a82f9, type: 3}
 --- !u!82 &1086343
 AudioSource:
   m_ObjectHideFlags: 0

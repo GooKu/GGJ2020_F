@@ -29,6 +29,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameUIManager gameUIManager = null;
 
+    [SerializeField]
+    private AudioClip startSound = null;
+    [SerializeField]
+    private AudioClip battleSound = null;
+    [SerializeField]
+    private AudioClip endSound = null;
+
     private static GamePhase phase;
 
     private Dictionary<int, PlayerController> players = new Dictionary<int, PlayerController>();
