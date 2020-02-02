@@ -96,7 +96,7 @@ public class MaterialRandomCreate : MonoBehaviour
         if (maskSideMaterials.Length < 1) return;
 
         //隨機生成1-3個
-        int createNum = Random.Range(1, 3);
+        int createNum = Random.Range(2, 4);
 
         for (int i = 0; i < createNum; i++)
         {
@@ -142,5 +142,11 @@ public class MaterialRandomCreate : MonoBehaviour
         }
 
         item.Clear();
+    }
+
+    //刪除特定物件
+    public void RemoveItem(GameObject gameObject)
+    {
+        item.Remove(gameObject);
     }
 }

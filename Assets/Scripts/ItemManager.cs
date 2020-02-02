@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     //public MaskType maskType;
+    private MaterialRandomCreate materialRandomCreate;
+    private List<GameObject> list;
 
     [Header("口罩ID")]
     public int maskTypeId;
@@ -23,6 +25,7 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
         transform.rotation = Quaternion.Euler(defaultRotation.x,Random.Range(0,360),defaultRotation.z);
     }
 
@@ -52,8 +55,11 @@ public class ItemManager : MonoBehaviour
                     fall = false;
                     canCatch = false;
                     other.gameObject.transform.parent.GetComponent<PlayerController>().canTake = false;
+                    other.gameObject.transform.parent.GetComponent<PlayerController>().PutSound();
                     this.transform.SetParent(other.transform.parent);
                     this.transform.localPosition = new Vector3(-.02f, 0, 0);
+
+                    materialRandomCreate.RemoveItem(this.gameObject);
                 }
             }
         }
@@ -62,6 +68,8 @@ public class ItemManager : MonoBehaviour
             if (other.tag == TagManager.Machine)
             {
                 this.transform.parent.GetComponent<PlayerController>().canTake = true;
+                this.transform.parent.GetComponent<PlayerController>().PutSound();
+
                 this.transform.SetParent(other.transform);
                 this.transform.localPosition = new Vector3(0, 1f, 0);
                 other.gameObject.GetComponent<MachineManager>().AddMaterial(this.gameObject);
