@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private CountDownUI countDownUI = null;
     [SerializeField]
     private EndUI endUI = null;
+    [SerializeField]
+    private GameUIManager gameUIManager = null;
 
     private static GamePhase phase;
 
@@ -179,16 +181,16 @@ public class GameManager : MonoBehaviour
 
         var machineManagers = GameObject.FindObjectsOfType<MachineManager>();
 
-        var groupA = machineManagers[0];
-        var groupB = machineManagers[1];
+        var groupAPoint = gameUIManager.getTeamAScore();
+        var groupBPoint = gameUIManager.getTeamBScore();
 
-        if(groupA.GetScore() > groupB.GetScore())
+        if(groupAPoint > groupBPoint)
         {
-            endUI.ShowWinner(groupA.group);
+            endUI.ShowWinner(GroupType.Blue);
         }
-        else if (groupA.GetScore() < groupB.GetScore())
+        else if (groupAPoint < groupBPoint)
         {
-            endUI.ShowWinner(groupB.group);
+            endUI.ShowWinner(GroupType.Red);
         }
         else
         {

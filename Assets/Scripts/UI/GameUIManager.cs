@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 public class GameUIManager : MonoBehaviour
 {
@@ -10,18 +8,6 @@ public class GameUIManager : MonoBehaviour
     public Text TeamBScoreText;
     int TeamAScore = 0;
     int TeamBScore = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public void setTeamAScore(int score)
     {
@@ -37,9 +23,8 @@ public class GameUIManager : MonoBehaviour
         this.TeamBScore = score;
         TeamBScoreText.text = score.ToString();
     }
-    public int getTeambScore()
+    public int getTeamBScore()
     {
         return this.TeamBScore;
     }
-
 }

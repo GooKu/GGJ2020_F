@@ -232,6 +232,7 @@ MonoBehaviour:
   blueGroupColor: {r: 0, g: 0, b: 1, a: 1}
   countDownUI: {fileID: 1694718745}
   endUI: {fileID: 5849252909095257194}
+  gameUIManager: {fileID: 1355786978}
 --- !u!1 &198277768
 GameObject:
   m_ObjectHideFlags: 0
