@@ -24,16 +24,17 @@ public class ScoreText : MonoBehaviour
     }
     public void setTime(string timeStr)
     {
+        //print("setTime"+ timeStr);
         this.cleanChild();
         string centerIndex = Mathf.Round(timeStr.Length / 2).ToString("0.0");
-        Debug.Log(centerIndex);
+        //Debug.Log(centerIndex);
         float ci = float.Parse(centerIndex);
         float x = 0;
         for (int i = 0; i < timeStr.Length; i++)
         {
-            if (timeStr.Substring(i, 1) == ":")
+            if (timeStr.Substring(i, 1) == ".")
             {
-                print("find" + timeStr.Substring(i, 1));
+                //print("find" + timeStr.Substring(i, 1));
                 GameObject obj = new GameObject();
                 Image image = obj.AddComponent<Image>();
                 image.sprite = sprites[12];
@@ -47,7 +48,7 @@ public class ScoreText : MonoBehaviour
                 GameObject obj = new GameObject();
                 Image image = obj.AddComponent<Image>();
                 int index = int.Parse(timeStr.Substring(i, 1).ToString());
-                print(index);
+                //print(index);
                 image.sprite = sprites[index];
                 obj.GetComponent<RectTransform>().sizeDelta = new Vector2(fontWidth, fontHeight);
                 x = timeStr.Length - (ci - i) * stringOffset;

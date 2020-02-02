@@ -14,6 +14,13 @@ public class CountDownUI : MonoBehaviour
     private float time = 0;
     private bool isStart = false;
 
+    private ScoreText scoreText;
+
+    private void Awake()
+    {
+        scoreText = GetComponent<ScoreText>();
+    }
+
     public void Init()
     {
         time = timeLimit;
@@ -26,7 +33,8 @@ public class CountDownUI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        countDownText.text = time.ToString("00.00");
+        //countDownText.text = time.ToString("00.00");
+        scoreText.setTime(time.ToString("00.00"));
     }
 
     private void Update()
