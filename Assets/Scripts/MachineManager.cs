@@ -21,6 +21,9 @@ public class MachineManager : MonoBehaviour
     [Header("UI控制器")]
     public GameUIManager gameUIManager;
 
+    [Header("材料數量UI")]
+    public ItemPanelCtrl itemPanelCtrl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,17 +42,20 @@ public class MachineManager : MonoBehaviour
         {
             count++;
             maskSide.Add(material);
+            itemPanelCtrl.setItem1Label(maskSide.Count);
         }
 
         if (material.tag == TagManager.MaskMiddle)
         {
             count++;
             maskMiddle.Add(material);
+            itemPanelCtrl.setItem2Label(maskMiddle.Count);
         }
 
-        if(count == 3)
+        if (count == 3)
         {
             CheckMaterials();
+            ResetMaterialsQuantity();
         }
     }
 
@@ -70,7 +76,19 @@ public class MachineManager : MonoBehaviour
     private void ProduceMask()
     {
         print("Succeed");
+
+        //抓取全隊分數
+        if (group == GroupType.Blue)
+        {
+            totalScore = gameUIManager.GetComponent<GameUIManager>().getTeamAScore();
+        }
+        else
+        {
+            totalScore = gameUIManager.GetComponent<GameUIManager>().getTeamBScore();
+        }
+
         totalScore += maskScore[(maskMiddle[0].GetComponent<ItemManager>().maskTypeId)];
+
         CheckScore();
 
         ResetMaterialList();
@@ -128,6 +146,15 @@ public class MachineManager : MonoBehaviour
     {
         totalScore = 0;
         CheckScore();
+        ResetMaterialsQuantity();
         return totalScore;
+    }
+
+    [ContextMenu("ResetMaterialsQuantity")]
+    //重置材料數量
+    public void ResetMaterialsQuantity()
+    {
+        itemPanelCtrl.setItem1Label(0);
+        itemPanelCtrl.setItem2Label(0);
     }
 }

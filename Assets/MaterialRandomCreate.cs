@@ -23,6 +23,10 @@ public class MaterialRandomCreate : MonoBehaviour
     [Header("生成高度")]
     public float height;
 
+    [Header("生成數量上限")]
+    public int maxQuantity;
+
+    
     public List<GameObject> item;
 
     private float maskMiddleCreateTime;
@@ -42,6 +46,11 @@ public class MaterialRandomCreate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (item.Count > maxQuantity)
+        {
+            return;
+        }
+
         //如果不生成物件return
         if (!createMaterials) return;
 

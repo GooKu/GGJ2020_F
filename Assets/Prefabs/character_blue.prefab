@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 40
   axisFix: {x: -90, y: 90, z: 0}
+  yAxisFix: 0
   canTake: 1
 --- !u!54 &1527312609
 Rigidbody:
