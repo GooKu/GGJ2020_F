@@ -141,10 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72bedeb07a83874a927184f04c384e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 40
+  moveSpeed: 20
   axisFix: {x: -90, y: 90, z: 0}
   yAxisFix: 0
   canTake: 1
+  bornPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &1527312609
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -131,57 +131,71 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("message: " + data);
 
-        if(phase != GamePhase.OnBattle) { return; }
+        if(phase != GamePhase.OnBattle) { 
+            if (!players.TryGetValue(from, out var player)) { return; }
+            if(data["action"] == null) { return; }
+            var key = data["action"].ToString();
+            switch (key)
+            {
+                case "reset":
+                    player.ResetPlayer();
+                    break;
+                case "start":
+                    Debug.Log(this.isStart);
+                    Debug.Log(this.players.Count);
+                    if (this.isStart == false && this.players.Count % 2 == 0 && players.Count > 0)
+                    {
+                        isStart = true;
+                        GameStart();
+                    }
+                    break;
+                case "again":
+                    if (isEnding == true){
+                        isStart = true;
+                        isEnding = false;
+                        Again();
+                    }
+                    break;
+            }
+            return;
+         }
+        else{
+            if (!players.TryGetValue(from, out var player)) { return; }
 
-        if (!players.TryGetValue(from, out var player)) { return; }
+            if(data["action"] == null) { return; }
 
-        if(data["action"] == null) { return; }
+            var key = data["action"].ToString();
 
-        var key = data["action"].ToString();
-
-        switch (key)
-        {
-            case "reset":
-                player.ResetPlayer();
-                break;
-            case "start":
-                if (this.isStart == true && this.players.Count % 2 == 0 && players.Count > 0)
-                {
-                    isStart = true;
-                    GameStart();
-                }
-                break;
-            case "again":
-                if (isEnding == true){
-                    isStart = true;
-                    isEnding = false;
-                    Again();
-                }
-                break;
-            case "left":
-                player.StartGoLeft();
-                break;
-            case "left-up":
-                player.StopGoLeft();
-                break;
-            case "right":
-                player.StartGoRight();
-                break;
-            case "right-up":
-                player.StopGoRight();
-                break;
-            case "down":
-                player.StartGoDown();
-                break;
-            case "down-up":
-                player.StopGoDown();
-                break;
-            case "up":
-                player.StartGoUp();
-                break;
-            case "up-up":
-                player.StopGoUp();
-                break;
+            switch (key)
+            {
+                case "reset":
+                    player.ResetPlayer();
+                    break;
+                case "left":
+                    player.StartGoLeft();
+                    break;
+                case "left-up":
+                    player.StopGoLeft();
+                    break;
+                case "right":
+                    player.StartGoRight();
+                    break;
+                case "right-up":
+                    player.StopGoRight();
+                    break;
+                case "down":
+                    player.StartGoDown();
+                    break;
+                case "down-up":
+                    player.StopGoDown();
+                    break;
+                case "up":
+                    player.StartGoUp();
+                    break;
+                case "up-up":
+                    player.StopGoUp();
+                    break;
+            }
         }
     }
 

@@ -120,8 +120,7 @@
           left: 50%;
           bottom: 0;
           transform: translate(-50%, 0%);
-        }
-
+       }
         #jump-button {
         }
 
@@ -135,7 +134,7 @@
         .button-text {
             position: absolute;
             color: white;
-            ” font-family: sans-serif;
+            font-family: sans-serif;
             text-align: center;
             pointer-events: none;
             width: 50%;
@@ -152,7 +151,8 @@
 
     </style>
 
-    <script type="text/javascript">var airconsole;
+    <script type="text/javascript">
+    var airconsole;
 
     function App() {
       var me = this;
@@ -189,7 +189,16 @@
 
     App.prototype.sendMessageToScreen = function(msg) {
     	this.airconsole.message(AirConsole.SCREEN, {"action": msg});
-    };</script>
+    };
+    function startButton(){
+            document.getElementById("startbutton").style.display = "none";
+            document.getElementById("againbutton").style.display = "block";
+    }
+    function againButton(){
+            document.getElementById("againbutton").style.display = "none";
+            document.getElementById("startbutton").style.display = "block";
+    }
+    </script>
 
 </head>
 <body onload="window.app = new App()">
@@ -199,7 +208,15 @@
     <img class="chihuahua" src="TemplateData/chihuahua.png"></img>
 
     <div class="pad pad-right">
-
+      <div id="up-button">
+        <div id = "resetbutton" class="button video-game-button" ontouchend="window.app.sendMessageToScreen('reset')">Reset</div>
+      </div>
+      <div id="down-button">
+        <div id = "startbutton" onclick="startButton()" class="button video-game-button" ontouchend="window.app.sendMessageToScreen('start')">Start</div>
+      </div>
+      <div id="right-button">
+        <div id = "againbutton" onclick="againButton()" class="button video-game-button" style = "display:none" ontouchend="window.app.sendMessageToScreen('again')">Again</div>
+      </div>
     </div>
     <div class="pad pad-left">
 
