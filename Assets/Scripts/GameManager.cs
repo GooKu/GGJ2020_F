@@ -145,18 +145,19 @@ public class GameManager : MonoBehaviour
                 player.ResetPlayer();
                 break;
             case "start":
-                if (not isStart and players.Count % 2 == 0 and players.Count > 0)
+                if (this.isStart == true && this.players.Count % 2 == 0 && players.Count > 0)
                 {
                     isStart = true;
                     GameStart();
                 }
                 break;
             case "again":
-                if (isEnding){
+                if (isEnding == true){
                     isStart = true;
                     isEnding = false;
                     Again();
                 }
+                break;
             case "left":
                 player.StartGoLeft();
                 break;
