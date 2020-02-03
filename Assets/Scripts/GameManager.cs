@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
     int playerCount = 0;
 
     private AudioSource audio;
-
+    bool isStart = false;
+    bool isEnding = false;
     private void Awake()
     {
         AirConsole.instance.onMessage += OnMessage;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        isStart = false;
         OnPlayerCountChange += startUI.OnPlayerCountChange;
         startUI.Show();
         countDownUI.Init();
@@ -118,10 +120,10 @@ public class GameManager : MonoBehaviour
         }
 
         newPlayer.transform.position = pos;
-
+        newPlayer.GetComponent<PlayerController>().SetBornTransForm(pos);
         var playerController = newPlayer.GetComponent<PlayerController>();
         players.Add(deviceID, playerController);
-
+    
         OnPlayerCountChange?.Invoke(playerCount);
     }
 
@@ -139,6 +141,22 @@ public class GameManager : MonoBehaviour
 
         switch (key)
         {
+            case "reset":
+                player.ResetPlayer();
+                break;
+            case "start":
+                if (not isStart and players.Count % 2 == 0 and players.Count > 0)
+                {
+                    isStart = true;
+                    GameStart();
+                }
+                break;
+            case "again":
+                if (isEnding){
+                    isStart = true;
+                    isEnding = false;
+                    Again();
+                }
             case "left":
                 player.StartGoLeft();
                 break;
@@ -178,6 +196,7 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
+        isEnding = false;
         phase = GamePhase.OnBattle;
         startUI.Hide();
         countDownUI.StartCountDown();
@@ -191,6 +210,8 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        isEnding = true;
+        isStart = false;
         phase = GamePhase.End;
         var materialRandomCreate = GameObject.FindObjectOfType<MaterialRandomCreate>();
         materialRandomCreate?.StopCreate();

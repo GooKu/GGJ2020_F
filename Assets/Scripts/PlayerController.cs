@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [Header("玩家是否可以拿東西")]
     public bool canTake = true;
 
+    public Vector3 bornPosition = Vector3.zero;
 
     private Rigidbody rig;
     private float direction;
@@ -150,4 +151,12 @@ public class PlayerController : MonoBehaviour
         putAds.Play();
     }
     
+    public void SetBornTransForm(Vector3 pos){
+        this.bornPosition = pos;
+    }
+
+    public void ResetPlayer(){
+        this.transform.position = this.bornPosition;
+    }
+
 }
